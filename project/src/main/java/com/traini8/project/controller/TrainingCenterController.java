@@ -10,6 +10,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * Controller class for managing Training Centers.
+ * Provides RESTful APIs for creating and retrieving training centers.
+ */
+
 @RestController
 @RequestMapping("/api/training-centers")
 public class TrainingCenterController {
@@ -17,12 +22,20 @@ public class TrainingCenterController {
     @Autowired
     private TrainingCenterService trainingCenterService;
 
+      /**
+     * Create a new Training Center.
+     * @param trainingCenter Training center details.
+     * @return ResponseEntity with created center.
+     */
+    
     @PostMapping
     public ResponseEntity<?> createdTrainingCenter(@Valid @RequestBody TrainingCenter trainingCenter){
         TrainingCenter savedCenter = trainingCenterService.savedTrainingCenter(trainingCenter);
         return new ResponseEntity<>(savedCenter, HttpStatus.CREATED);
     }
 
+    // Get all Training Centers 
+    
     @GetMapping
     public ResponseEntity<List<TrainingCenter>> getAllTrainingCenters(){
         List<TrainingCenter> centers = trainingCenterService.getAllTrainingCenters();
@@ -33,6 +46,14 @@ public class TrainingCenterController {
 
     }
 
+     /**
+     * Filter Training Centers 
+     * @param city   (optional) City to filter by.
+     * @param state  (optional) State to filter by.
+     * @param course (optional) Course to filter by.
+     * @return List of filtered training centers.
+     */
+    
     @GetMapping("/filter")
     public List<TrainingCenter> getTrainingCentersByFilters(
             @RequestParam(required = false) String city,
