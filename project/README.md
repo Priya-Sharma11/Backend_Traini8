@@ -18,16 +18,16 @@ This is a Spring Boot application that manages training center information.
 
 ### Steps to Set Up
 1. **Clone the repository:**
-   git clone https://github.com/your-username/Backend_Traini8.git
-   cd Backend_Traini8
+  * git clone https://github.com/your-username/Backend_Traini8.git
+   * cd Backend_Traini8
 2. Configure MySQL Database
 * Start your MySQL service and create a new database: CREATE DATABASE training_center_db;
 
 3. Update the database configuration in src/main/resources/application.properties:
 
-spring.datasource.url=jdbc:mysql://localhost:3306/training_center_db
-spring.datasource.username=YOUR_USERNAME
-spring.datasource.password=YOUR_PASSWORD
+- spring.datasource.url=jdbc:mysql://localhost:3306/training_center_db
+- spring.datasource.username=YOUR_USERNAME
+- spring.datasource.password=YOUR_PASSWORD
 
 4. Build the project: mvn clean install
 
